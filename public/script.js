@@ -2,6 +2,8 @@ const url = 'https://newsapi.org/v2/everything?';
 const apikey = "396048840e5b47309317bff78f3bcbfe";
 
 $('button#Search').on('click', function (e) {
+	Delete();
+	
     var search = $('input#Text').val();
     var lang = $('select#selectLang option:selected').val();
     var sortBy = $('select#selectSortBy option:selected').val();
@@ -46,7 +48,6 @@ $('button#Search').on('click', function (e) {
     e.stopPropagation();
 });
 
-
 function Add(author, title, description, url, urlToImage, publishedAt) {
     var otvet = $(
         '<div class="blog-post  wow fadeInUp">' +
@@ -59,4 +60,8 @@ function Add(author, title, description, url, urlToImage, publishedAt) {
         '</div>'
     );
     $('div.Result').append(otvet);
+}
+
+function Delete(){
+    $('div.blog-post').remove();
 }

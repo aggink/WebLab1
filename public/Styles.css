@@ -48,6 +48,7 @@
 }
 
 /*Заголовок*/
+/*
 .header-h1 h1 {
   font-size: 1.5rem;
   color: #c62828;
@@ -69,6 +70,34 @@
   transform: translateY(-50%);
   z-index: -999;
 }
+*/
+.header-h1 {
+    position: relative;
+    margin-bottom: .5rem;
+	text-align: center;
+	padding-left: 1rem;
+  }
+  .header-h1::after  {
+    content: "";
+    position: absolute;
+    border-top: 2px solid #c62828;
+    border-bottom: 2px solid #c62828;
+    height: .375rem;
+    left: 0;
+    top: 50%;
+    width: 100%;
+    transform: translateY(-55%);
+    z-index: -999;
+  }
+  .header-h1 h1 {
+    font-size: 1.5rem;
+    color: #c62828;
+    display: inline-block;
+    background: #fff;
+    margin-bottom: 0;
+    padding-right: 1rem;
+    text-transform: uppercase;
+  }
 
 /*Результаты*/
 .blog-page{
