@@ -38,14 +38,14 @@
                         <option value="nl">Нидерландский</option>
                         <option value="no">Норвежский</option>
                         <option value="pt">Португальский</option>
-                        <option value="ru">Русский</option>
+                        <option value="ru" selected>Русский</option>
                     </select>
                 </div>
 
                 <div class="form-group col-md-5">
                     <select class="form-control" id="selectSortBy">
                         <option selected>Метод выборки</option>
-                        <option value="relevancy">Наиболее подходящие</option>
+                        <option value="relevancy" selected>Наиболее подходящие</option>
                         <option value="popularity">Популярные</option>
                         <option value="publishedAt">Новые</option>
                     </select>
@@ -56,17 +56,19 @@
                 <div class="form-group col-md-5">
                     <label for="DateFrom">Введите дату поиска от</label>
                     <input type="date" class="form-control" id="DateFrom" placeholder="Выберите дату"
-                        value="2021-02-07">
+                        value="2021-11-11">
                 </div>
 
                 <div class="form-group col-md-5">
                     <label for="DateTo">Введите дату поиска до</label>
                     <input type="date" class="form-control" id="DateTo" placeholder="Выберите дату"
-                        value="2021-03-07">
+                        value="2021-10-15">
                 </div>
             </div>
 
             <button type="submit" class="btn btn-primary" id="Search">Найти</button>
+            <br> <br>
+            <button type="submit" class="btn btn-primary" id="GetJson">Создать json</button>
         </div>
     </div>
 
@@ -78,7 +80,7 @@
 
     <!--scripts-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
-    <script src="script.js"></script>
+    <script src="./script.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous">
     </script>

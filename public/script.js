@@ -65,3 +65,59 @@ function Add(author, title, description, url, urlToImage, publishedAt) {
 function Delete(){
     $('div.blog-post').remove();
 }
+
+$('button#GetJson').on('click', function (e) {
+
+    var search = $('input#Text').val();
+    var lang = $('select#selectLang option:selected').val();
+    var sortBy = $('select#selectSortBy option:selected').val();
+    var from = $('input#DateFrom').val();
+    var to = $('input#DateTo').val();
+
+    var newUrl = url +
+        'q=' + search +
+        '&from=' + from +
+        '&to=' + to +
+        '&language=' + lang +
+        '&sortBy=' + sortBy +
+        '&apiKey=' + apikey;
+
+    var request = new XMLHttpRequest();
+    
+    request.open('GET', newUrl);
+    request.responseType = 'json';
+    request.send();
+    
+    request.onload = function () {
+        var result = request.response;
+        if (result['status'] == 'ok') {
+            var win = window.open('', '_blank');
+
+            var otvet = new Object();
+            otvet["status"] = result["status"];
+            var mas = new Array();
+
+            for(i = 0; i < result['articles'].length; i++){
+                var item = {
+                    id: result['articles'][i]['source']['id'],
+                    author: result['articles'][i]['author'],
+                    title: result['articles'][i]['title'],
+                    description: result['articles'][i]['description'],
+                    url: result['articles'][i]['url'],
+                    urlToImage: result['articles'][i]['urlToImage'],
+                    publishedAt: result['articles'][i]['publishedAt']
+                };
+                mas.push(item);
+            }
+
+            otvet["articles"] = mas;
+
+            let json = JSON.stringify(otvet);
+
+            win.document.write(json);
+            win.focus();
+        }
+    }
+
+    e.stopPropagation();
+});
